@@ -1,0 +1,29 @@
+/* src/components/ProfileSidebar.css */
+.profile-drawer {
+  width: 300px;
+  padding: 24px;
+  position: relative;
+  background-color: #191990 !important;
+  color: white !important;
+  height: 100%;
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-label {
+  font-weight: bold;
+  color: white !important;
+}
+
+.profile-value {
+  color: white !important;
+}
+
+.profile-divider {
+  margin: 16px 0;
+  border-color: white !important;
+}

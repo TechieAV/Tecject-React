@@ -1,0 +1,96 @@
+/* ---------------- Animations ---------------- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.zoom-in {
+  animation: zoomIn 0.8s ease-out forwards;
+}
+
+/* ---------------- Card Hover Animation ---------------- */
+.animated-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+}
+
+.animated-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* ---------------- Responsive Images ---------------- */
+.responsive-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ---------------- Breakpoints ---------------- */
+
+/* Mobile: max-width 600px */
+@media (max-width: 600px) {
+  .fade-in-up {
+    animation-duration: 0.8s;
+  }
+
+  .stack-buttons {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+  }
+
+  .card-mobile {
+    max-width: 100% !important;
+  }
+}
+
+/* Tablet: 600px - 900px */
+@media (min-width: 600px) and (max-width: 900px) {
+  .stack-buttons {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 16px !important;
+  }
+
+  .card-tablet {
+    max-width: 280px !important;
+    margin: auto;
+  }
+}
+
+/* Laptop: 900px - 1200px */
+@media (min-width: 900px) and (max-width: 1200px) {
+  .card-laptop {
+    max-width: 300px !important;
+  }
+}
+
+/* Desktop: 1200px+ */
+@media (min-width: 1200px) {
+  .card-desktop {
+    max-width: 320px !important;
+  }
+}

@@ -1,0 +1,93 @@
+.form-background {
+  min-height: 100vh;
+  width: 100%;
+  background-image: url('../../assets/EnterprisesFormbg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 5vw;
+  padding-left: 2vw;
+  box-sizing: border-box;
+   position: relative;
+  z-index: 1;
+}
+
+.glass-form {
+  width: 100%;
+  max-width: 500px;
+  padding: 30px;
+  border-radius: 20px;
+  background: transparent !important;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 0 8px 32px rgba(244, 240, 240, 0.25);
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 2;
+}
+
+/* Force all MUI TextField elements inside glass-form to use white styling */
+.glass-form .MuiInputBase-root {
+  color: white !important;
+  border-color: white !important;
+  background-color: transparent !important;
+}
+
+.glass-form .MuiOutlinedInput-root {
+  color: white !important;
+  background-color: transparent !important;
+}
+
+.glass-form .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+  border-color: white !important;
+  background-color: transparent !important;
+}
+
+.glass-form .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: white !important;
+  background-color: transparent !important;
+}
+
+.glass-form .MuiInputLabel-root {
+  color: white !important;
+  background-color: transparent !important;
+}
+
+.glass-form .MuiInputLabel-root.Mui-focused {
+  color: white !important;
+  background-color: transparent !important;
+}
+
+.glass-form input,
+.glass-form textarea {
+  color: white !important;
+  background-color: transparent !important;
+}
+
+.glass-form .MuiFormHelperText-root {
+  color: #ccc !important;
+  background-color: transparent !important;
+}
+
+/* Checkbox icon color */
+.glass-form .MuiCheckbox-root {
+  color: white !important;
+  background-color: transparent !important;
+}
+
+/* When checkbox is checked */
+.glass-form .MuiCheckbox-root.Mui-checked {
+  color: white !important;
+  background-color: transparent !important;
+}
+
+/* Optional: Label next to checkbox */
+.glass-form .MuiFormControlLabel-label {
+  color: white !important;
+  background-color: transparent !important;
+}
+

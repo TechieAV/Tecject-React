@@ -1,0 +1,161 @@
+.register-wrapper {
+  min-height: 100vh; /* Flexible height */
+  background: linear-gradient(to right, #f0f4ff, #FFFFFF);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px; /* So content doesn’t touch screen edges */
+}
+
+.register-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 900px; /* Prevents stretching too much */
+  background-color: #FFFFFF;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Left Section */
+.register-left {
+  flex: 1;
+  background: linear-gradient(to right, #191970, #4169E1);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  text-align: center;
+}
+
+.about-btn {
+  background: white;
+  color: #191970;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Right Section */
+.register-right {
+  flex: 1;
+  background-color: #FFFFFF;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.register-form input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.register-btn {
+  background-color: #191970;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+/* Password Rules & Status */
+.password-rules {
+  margin-top: 6px;
+  margin-bottom: 12px;
+}
+
+.snackbar {
+  padding: 8px 12px;
+  margin: 4px 0;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+.snackbar.valid {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.snackbar.invalid {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.snackbar.status-msg.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.snackbar.status-msg.error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* -------------------------
+   RESPONSIVE BREAKPOINTS
+-------------------------- */
+
+/* Tablet View */
+@media (max-width: 992px) {
+  .register-container {
+    flex-direction: column;
+    height: auto;
+  }
+  .register-left,
+  .register-right {
+    width: 100%;
+    border-radius: 0;
+    padding: 20px;
+  }
+  .register-left {
+    padding: 40px 20px;
+  }
+}
+
+/* Mobile View */
+/* Mobile View */
+@media (max-width: 600px) {
+  .register-container {
+    flex-direction: column !important; /* Ensure stacked sections */
+  }
+
+  .register-left,
+  .register-right {
+    width: 100% !important;
+    padding: 20px !important;
+  }
+
+  .register-form {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px; /* spacing between fields */
+  }
+
+  .register-form input,
+  .register-form select,
+  .register-form textarea {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  .register-btn {
+    align-self: center;
+    width: 100% !important;
+  }
+}

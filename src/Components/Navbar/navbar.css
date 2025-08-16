@@ -1,0 +1,49 @@
+.navbar {
+  background-color: #191970 !important;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-title {
+  flex-grow: 1;
+  color: white;
+  text-transform: none !important;
+}
+
+.nav-button {
+  color: white !important;
+  text-transform: none !important; /* ensure PascalCase */
+  font-size: 1rem;
+}
+
+.logout-button {
+  color: white !important;
+  background-color: #191970 !important;
+  border: 1px solid white !important;
+  padding: 2px 8px !important;
+  font-size: 0.875rem !important;
+  text-transform: none !important;
+  min-width: unset !important;
+  line-height: 1.2;
+  margin-left: 16px !important;
+}
+
+.logout-button:hover {
+  background-color: #191970;
+  border-color: #fff;
+}
+
+.navbar-toolbar {
+  min-height: 38px !important;
+  padding-left: 8px;
+  padding-right: 8px;
+  background-color: #191970;
+}
+
+@media (max-width: 768px) {
+  .nav-button,
+  .logout-button {
+    display: none;
+  }
+}

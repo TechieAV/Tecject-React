@@ -1,0 +1,42 @@
+.project-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.3s ease;
+  background-color: #f9f9f9;
+}
+
+.project-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.project-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 10px;
+}
+
+.project-summary {
+  font-size: 0.9rem;
+  color: #4a5568;
+  line-height: 1.5;
+}
+
+/* Level-specific styles */
+.beginner {
+  background-color: #f0fdf4; /* Light green */
+  border-color: #86efac;
+}
+
+.intermediate {
+  background-color: #eff6ff; /* Light blue */
+  border-color: #93c5fd;
+}
+
+.advanced {
+  background-color: #fef2f2; /* Light red */
+  border-color: #fca5a5;
+}
+
