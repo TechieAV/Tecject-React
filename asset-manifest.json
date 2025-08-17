@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Tecject-React/static/css/main.66dbc63c.css",
-    "main.js": "/Tecject-React/static/js/main.0f7b6cc9.js",
+    "main.js": "/Tecject-React/static/js/main.66be5cbd.js",
     "static/js/453.2cdaf16a.chunk.js": "/Tecject-React/static/js/453.2cdaf16a.chunk.js",
     "static/media/logo.png": "/Tecject-React/static/media/logo.6d9de38bf14e66da7be0.png",
     "static/media/BgImage.png": "/Tecject-React/static/media/BgImage.c8557641b2c827e459c3.png",
@@ -38,11 +38,11 @@
     "static/media/Youtube.svg": "/Tecject-React/static/media/Youtube.a339ce976e1aefe1aad8ec203e02abeb.svg",
     "index.html": "/Tecject-React/index.html",
     "main.66dbc63c.css.map": "/Tecject-React/static/css/main.66dbc63c.css.map",
-    "main.0f7b6cc9.js.map": "/Tecject-React/static/js/main.0f7b6cc9.js.map",
+    "main.66be5cbd.js.map": "/Tecject-React/static/js/main.66be5cbd.js.map",
     "453.2cdaf16a.chunk.js.map": "/Tecject-React/static/js/453.2cdaf16a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.66dbc63c.css",
-    "static/js/main.0f7b6cc9.js"
+    "static/js/main.66be5cbd.js"
   ]
 }
