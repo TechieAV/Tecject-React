@@ -6,6 +6,7 @@ import {
   DialogContent,
   DialogTitle,
 } from '@mui/material';
+import RazorpayPayment from '../RazorPayment/Payment';
 import { useLocation, useNavigate} from 'react-router-dom';
 import { getAllProjects } from '../../Services/AdminService';
 import { createStudentPurchase } from '../../Services/StudentPurchase';
@@ -156,7 +157,8 @@ const handleViewReceipt = () => {
 
 
 
-const handleSubmit = async () => {
+const handleSubmit = async (paymentResponse) => {
+  // ✅ Validation checks before allowing purchase
   if (!form.collegeName || !form.currentYear || !form.projectType) {
     alert('Please fill all required fields.');
     return;
@@ -171,55 +173,68 @@ const handleSubmit = async () => {
     alert('Please enter custom project name.');
     return;
   }
+
   try {
-    let paymentBase64 = '';
-
-    if (form.paymentCompleted && form.paymentScreenshot) {
-      paymentBase64 = await convertToBase64(form.paymentScreenshot);
-    }
-
+    // ✅ Prepare purchase payload
     const payload = {
-      id: userId, // from localStorage
+      id: userId,
       collegeName: form.collegeName,
       currentYear: form.currentYear,
       interestedCourse: form.interestedCourse,
       requirementDetails: form.requirementDetails,
       priceQuoted: parseFloat(form.priceQuoted),
-      paymentCompleted: form.paymentCompleted,
+      paymentCompleted: true, // always true after successful Razorpay payment
       projectType: form.projectType,
-      paymentBase64: paymentBase64,
-      projectId: form.projectType === 'Main Project' ? form.projectId : null
+      projectId: form.projectType === 'Main Project' ? form.projectId : null,
+      razorpayPaymentId: paymentResponse?.razorpay_payment_id, // from Razorpay handler
+      razorpayOrderId: paymentResponse?.razorpay_order_id,
+      razorpaySignature: paymentResponse?.razorpay_signature,
     };
 
-    // ✅ Create purchase first
+    // ✅ Save purchase in DB
     await createStudentPurchase(payload);
 
-    // ✅ Then create receipt
+    // ✅ Generate receipt ID
     const receiptId = `RCT-${new Date().toISOString().replace(/[-:.TZ]/g, '').slice(0, 14)}`;
 
+    // ✅ Get project name depending on type
     const projectName =
-      form.projectType === 'Main Project'
-        ? (projects.find(p => p.projectGuidId === form.projectId)?.projectName || 'Selected Project')
-        : form.customProjectName || 'Custom Project';
+      form.projectType === "Main Project"
+        ? (projects.find(p => p.projectGuidId === form.projectId)?.projectName || "Selected Project")
+        : form.customProjectName || "Custom Project";
 
+    // ✅ Prepare receipt payload
     const receipt = {
       receiptId,
-      userId, // This is from localStorage
+      userId,
       date: new Date().toISOString(),
       projectName,
       projectType: form.projectType,
       priceQuoted: parseFloat(form.priceQuoted),
-      paymentCompleted: form.paymentCompleted
+      paymentCompleted: true,
+      razorpayPaymentId: paymentResponse?.razorpay_payment_id, // keep for reference
     };
 
+    // ✅ Save receipt in DB
     await createReceipt(receipt);
 
+    // ✅ Show success dialog
     setSuccessMessageOpen(true);
+
+    // ✅ Optionally store receipt meta for viewing
+    setReceiptMeta({
+      id: receiptId,
+      date: new Date().toLocaleString(),
+      projectName,
+      type: form.projectType,
+    });
+
   } catch (err) {
-    console.error(err);
-    alert('Purchase or receipt creation failed');
+    console.error("Error in handleSubmit:", err);
+    alert("Purchase or receipt creation failed");
   }
 };
+
 
 
 
@@ -363,11 +378,16 @@ const handleSubmit = async () => {
             </Grid>
           )}
 
-          <Grid item xs={12}>
-            <Button variant="contained" fullWidth onClick={handleSubmit}>
-              Submit Purchase
-            </Button>
-          </Grid>
+          <RazorpayPayment
+    amount={form.priceQuoted || 500}
+    onSuccess={(paymentResponse) => {
+      // ✅ Set paymentCompleted before saving
+      setForm((prev) => ({ ...prev, paymentCompleted: true }));
+
+      // ✅ Call handleSubmit with Razorpay response
+      handleSubmit(paymentResponse);
+    }}
+  />
         </Grid>
       </Paper>
 

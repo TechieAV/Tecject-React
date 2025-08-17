@@ -127,7 +127,7 @@ const Footer = () => {
           "&:hover": { color: "#1e90ff", cursor: "pointer" },
         }}
       >
-        +91-98765-43210
+        +91-9345202170
       </Typography>
       <Link
         href="mailto:support@tecject.in"

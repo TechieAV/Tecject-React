@@ -147,7 +147,7 @@ const ProjectDetail = () => {
       {
         icon: '📞',
         title: 'Call Us',
-        content: '+91 98765 43210',
+        content: '+91 9345202170',
       },
       {
         icon: '📧',
