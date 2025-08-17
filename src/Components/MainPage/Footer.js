@@ -59,7 +59,7 @@ const Footer = () => {
   ].map((section, index) => (
     <Grid
       item
-      xs={6} // two columns per row on mobile
+      xs={0.5} // two columns per row on mobile
       sm={4}  // three columns on tablet
       md={3}  // four columns on desktop
       key={section.title}

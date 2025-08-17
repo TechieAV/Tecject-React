@@ -112,7 +112,7 @@ const roleLinks = userLinks;
 
   return (
     <>
-      <AppBar position="static" className="navbar">
+      <AppBar position="fixed" className="navbar">
         <Toolbar className="navbar-toolbar">
           <Box
             display="flex"
