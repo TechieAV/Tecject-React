@@ -177,16 +177,15 @@ const Login = () => {
 
             <div className="create-account">
               <Typography variant="body2">
-                Are you new?{' '}
-                <Typography
-  onClick={handleNavigation}
-  color="primary"
-  style={{ cursor: 'pointer', textDecoration: 'underline' }}
->
-  Create an Account
+  Are you new?{' '}
+  <span
+    onClick={handleNavigation}
+    style={{ cursor: 'pointer', color: '#1976d2', textDecoration: 'underline' }}
+  >
+    Create an Account
+  </span>
 </Typography>
 
-              </Typography>
               <Grid item xs={12} mt={2}>
                 {isEnterprise && (<>
   <Button
