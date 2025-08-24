@@ -28,6 +28,15 @@ const Login = () => {
     setLoginData({ ...loginData, [e.target.name]: e.target.value });
   };
 
+  const handleNavigation = () => {
+  if (isEnterprise) {
+    navigate('/EnterpriseRegister');
+  } else {
+    navigate('/register');
+  }
+};
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -169,9 +178,14 @@ const Login = () => {
             <div className="create-account">
               <Typography variant="body2">
                 Are you new?{' '}
-                <Link href={isEnterprise ? '/Tecject-React/EnterpriseRegister' : '/Tecject-React/register'} color="primary">
-                  Create an Account
-                </Link>
+                <Typography
+  onClick={handleNavigation}
+  color="primary"
+  style={{ cursor: 'pointer', textDecoration: 'underline' }}
+>
+  Create an Account
+</Typography>
+
               </Typography>
               <Grid item xs={12} mt={2}>
                 {isEnterprise && (<>
