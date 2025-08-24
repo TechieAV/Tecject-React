@@ -1,4 +1,5 @@
 .register-wrapper {
+  margin-top: 55px;
   min-height: 100vh; /* Flexible height */
   background: linear-gradient(to right, #f0f4ff, #FFFFFF);
   display: flex;
